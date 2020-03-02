@@ -54,6 +54,4 @@ private:
     std::string _method;
 };
 
-
-
 #endif //NUMERICAL_METHODS_INTERPOLATION_H

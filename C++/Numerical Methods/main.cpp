@@ -1,14 +1,44 @@
 #include "interpolation.h"
 #include <fstream>
+#include <sstream>
 
-void read_csv(const std::string& filename="data.txt"){
-    std::string output;
-    std::fstream f;
+using svmap = std::map<std::string, std::vector<float>>;
+
+svmap read_csv(const std::string& filename="data.csv"){
+    svmap data;
+    fvec vec;
+    std::vector<std::string> var_names;
+
+    std::ifstream f;
     f.open(filename, std::ios::in);
-    if(f.is_open()) {
+
+    if(f.good()) {
         std::cout << "File successfully opened." <<std::endl;
+
+        std::string output,temp;
+        std::getline(f,output);
+        for(int i=0; i!=output.size(); ++i){
+            if(output[i] == ',') {
+                var_names.push_back(temp);
+                temp.clear();
+            }else{
+                temp.push_back(output[i]);
+            }
+        }
+        var_names.push_back(temp);
+
+        std::vector<std::vector<float>> var_values[var_names.size()];
+        int i, j=0;
+
         while (std::getline(f, output)) {
-            std::cout << output << std::endl;
+            j=0;
+            for(i=0; i!=output.size(); ++i){
+                if(output[i] == ',') {
+                    ++j;
+                }else{
+                    var_values->at(j).push_back(output[i]);
+                }
+            }
         }
         f.close();
     }else{
