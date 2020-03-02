@@ -31,14 +31,32 @@ ffmap Interpolation::linear(fvec& x_vec) {
     return result;
 }
 
+//NOT OPTIMISED YET
 ffmap Interpolation::lagrange(fvec& x_vec) {
-
+    ffmap result;
+    float temp1, temp2;
+    for(auto& x: x_vec){
+        temp1 = 0;
+        for(int i=0; i<_x.size(); ++i){
+            temp2=1;
+            for(int j=0; j<_x.size(); ++j){
+                if(i!=j){
+                    temp2 *= (x-_x[j])/(_x[i]-_x[j]);
+                }
+            }
+            temp1 += _y[i]*temp2;
+        }
+        result[x] = temp1;
+    }
+    return result;
 }
 
+//NOT IMPLEMENTED
 ffmap Interpolation::newton(fvec& x_vec) {
 
 }
 
+//NOT IMPLEMENTED
 ffmap Interpolation::spline(fvec& x_vec) {
 
 }
