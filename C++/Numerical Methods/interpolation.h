@@ -1,7 +1,3 @@
-//
-// Created by Marcel Kucharski on 27.02.2020.
-//
-
 #ifndef NUMERICAL_METHODS_INTERPOLATION_H
 #define NUMERICAL_METHODS_INTERPOLATION_H
 

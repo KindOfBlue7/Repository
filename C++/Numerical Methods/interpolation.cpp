@@ -1,7 +1,3 @@
-//
-// Created by Marcel Kucharski on 27.02.2020.
-//
-
 #include "interpolation.h"
 
 void Interpolation::print_map(const ffmap& fmap) {
