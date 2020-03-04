@@ -20,7 +20,7 @@ ffmap Interpolation::linear(fvec& x_vec) {
     for(int i=0; i<x_vec.size(); ++i){
         if(i!=0 && x_vec[i]<x_vec[i-1])
             throw std::invalid_argument("Given vector is not incrementing.");
-        if(x_vec[i]>=_x[j])
+        if(x_vec[i]>_x[j])
             ++j;
         result[x_vec[i]] = (_y[j+1]-_y[j])/(_x[j+1]-_x[j])*(x_vec[i]-_x[j]) + _y[j];
     }

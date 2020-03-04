@@ -1,7 +1,6 @@
 #include "interpolation.h"
 #include <fstream>
 #include <sstream>
-#include <Python.h>
 
 using svmap = std::map<std::string, std::vector<float>>;
 
